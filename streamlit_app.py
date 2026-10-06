@@ -23,7 +23,7 @@ def secret(name, default=""):
     try: return st.secrets[name]
     except Exception: return default
 
-api_key=secret("OPENAI_API_KEY")
+api_key=secret("GEMINI_API_KEY")
 admin_password=secret("ADMIN_PASSWORD","admin")
 
 if "role" not in st.session_state: st.session_state.role="Agent"
@@ -58,7 +58,7 @@ st.markdown('<div class="ops-title">OpsMate</div>',unsafe_allow_html=True)
 st.markdown('<div class="ops-sub">Ask. Resolve. Learn. — Region-aware process and product knowledge.</div>',unsafe_allow_html=True)
 
 if not api_key:
-    st.error("OPENAI_API_KEY is missing. Add it in .streamlit/secrets.toml locally or Streamlit Cloud Secrets.")
+    st.error("GEMINI_API_KEY is missing. Add it in .streamlit/secrets.toml locally or Streamlit Cloud Secrets.")
     st.stop()
 
 if page=="Ask OpsMate":
